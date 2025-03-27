@@ -14,8 +14,8 @@ generos = []
 
 load_dotenv()
 Spotify = spotipy.Spotify(auth_manager=SpotifyOAuth(
-    client_id=os.getenv("CLIENT_ID"),
-    client_secret=os.getenv("CLIENT_SECRET"),
+    client_id=os.getenv("CLIENT_ID"),##YOUR KEY CLIENT ID,
+    client_secret=os.getenv("CLIENT_SECRET"),##YOUR KEY CLIENT SECRET,
     redirect_uri="http://localhost:8888/callback",
     scope="playlist-read-private playlist-read-collaborative user-read-recently-played",
     cache_path=".cache-spotify"  # Desativa o cache
