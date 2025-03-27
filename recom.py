@@ -39,7 +39,7 @@ def buscar_artista_id(nome_artista):
         artista_id.append(artista['id'])
 
 # Função para obter as últimas músicas
-def get_recent_tracks(limit=10):
+def get_recent_tracks(limit=25):
     recent_tracks = Spotify.current_user_recently_played(limit=limit)
     tracks = []
     for item in recent_tracks['items']:
@@ -69,11 +69,18 @@ for i in artista_id:
 print('\n')
 
 contagem = Counter(generos)
+contagemArtista = Counter(artista)
+
+topArtista = contagemArtista.most_common(3)
 top_generos = contagem.most_common(3)  # Lista de tuplas (gênero, frequência)
 
-print('\nGêneros das suas últimas músicas (ordenados por frequência):')
+print('\nCantores e gêneros das suas últimas músicas (ordenados por frequência):')
+print('top generos')
 for genero, frequencia in top_generos:
     print(f'- {genero} (aparece {frequencia} vezes)')
+print('\ntop cantores')
+for artista, num in topArtista:
+    print(f'- {artista} (aparece {num} vezes)')
 
 # Para usar nas recomendações (apenas os nomes dos gêneros)
 generos_recomendacao = [genero for genero, freq in top_generos]
