@@ -31,7 +31,7 @@ Before you begin, ensure you have:
 
 2. Install the required packages:
   ```bash
-  pip instal spotipy
+  pip install spotipy
   ```
 3. Create a .env file in the root directory with your credentials:
    ```bash
