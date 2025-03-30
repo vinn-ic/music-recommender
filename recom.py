@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 os.system('cls')
 
-geners_dup_music= []
+music= []
 artista = []
 artista_id = []
 generos = []
@@ -91,4 +91,6 @@ for genero in generos_recomendacao:
     for idx, item in enumerate(res['tracks']['items']):
         nome = item['name']
         artista = item['artists'][0]['name']
-        print(f'\n{nome} by {artista}')
+        if nome not in music:
+            music.append(nome)
+            print(f'\n{nome} by {artista}')
